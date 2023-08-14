@@ -4,3 +4,38 @@
 
 }
 
+<div class="container-fluid">
+
+    <!-- Conteúdo principal -->
+    <h1>Project description</h1>
+    <p>Project developed using MVC and dependency injection of one service, <i>PersonService</i>, and using some</p>
+    <p>HTML, CSS and Javascript skills. Click the button below to make a HTTP request to <i>/Person/GetAll</i></p>
+    <p>The same list will be returned accessing <i>Person</i> route on teh navbar.</p>
+
+    <button id="rippleButton" type="button" class="btn btn-primary btn-lg ripple">Click!</button>
+    <ul id="list" class="list-group" style=" padding: 20px; align-items: center;">
+    </ul>
+
+</div>
+@section scripts{
+    <script>$(document).ready(function () {
+            $("#rippleButton").click(function (event) {
+
+                // AJAX call
+                $.ajax({
+                    url: "/Person/GetAll", // Rota getAll no controller Pessoa
+                    method: "GET",
+                    success: function (response) {
+                        // Handle response here
+                        console.log(response);
+                        for (item in response) {
+                            console.log(response[item])
+                            $("#list").append('<li id="person-' + response[item].id + '"><a href="#">' +response[item].name+'</a></li>');
+
+                        }
+                    }
+                });
+
+            });
+        });</script>
+}

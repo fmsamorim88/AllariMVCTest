@@ -48,3 +48,4 @@ updateClock();
 
 
 document.addEventListener('mousemove', updateMousePosition);
+

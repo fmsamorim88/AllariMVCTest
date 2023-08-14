@@ -20,5 +20,11 @@ namespace SimpleMVC.Controllers
             List<Person> p = await _service.getPersons();
             return View(p);
         }
+        [HttpGet]
+        public async Task<JsonResult> GetAll()
+        {
+            List<Person> p = await _service.getPersons();
+            return await Task.FromResult(Json(p));
+        }
     }
 }

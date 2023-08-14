@@ -6,11 +6,11 @@
 <div class="container-fluid">
 
             <!-- Conteúdo principal -->
-            <h1>Lista de Pessoas</h1>
+            <h1>Person List</h1>
             <ul class="list-group">
-                @foreach (var pessoa in Model)
+                @foreach (var p in Model)
                 {
-                    <li class="list-group-item">@pessoa.Name</li>
+                    <li class="list-group-item">@p.Name</li>
                 }
             </ul>
 </div>

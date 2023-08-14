@@ -3,15 +3,25 @@
 <head>
     <title>@ViewData["Title"] - Minha App MVC</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a href="/" style="padding:7px">Home</a>
-            <a href="/person"  style="padding:7px">Person</a>
+            <a href="/person" style="padding:7px">Person</a>
 
 
-            <a href="#" style="background-color:#333;position:relative;left:38%">FELIPE MARCEL SILVA DE AMORIM</a>
+            <a href="#" style="color:white;background-color:#333;position:relative;left:38%">FELIPE MARCEL SILVA DE AMORIM</a>
             <div class="digital-clock ml-auto">
                 <span id="clock"></span>
             </div>
@@ -30,16 +40,36 @@
             </div>
             <div class="col-md-4">
                 <div class="image-slider">
-                    <button class="slider-btn prev" onclick="prevSlide()">Previous</button>
+                    <button class="btn btn-primary btn-lg" onclick="prevSlide()">Previous</button>
                     <img src="" id="sliderImage" alt="Slider Image" style="width:100px">
-                    <button class="slider-btn next" onclick="nextSlide()">Next</button>
+                    <button class="btn btn-primary btn-lg" onclick="nextSlide()">Next</button>
                 </div>
             </div>
         </div>
     </div>
     <footer class="text-center mt-5" style="position: absolute; bottom: 0; left: 42%; background-color: #ddd">
-        <a href="https://allari.com/" >Allari.com</a>
+        <a href="https://allari.com/">Allari.com</a>
     </footer>
     <script src="~/js/site.js"></script>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("scripts", required: false)
 </body>
 </html>
