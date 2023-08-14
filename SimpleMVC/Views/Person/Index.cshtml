@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Lista de Pessoas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<SimpleMVC.Models.Person>
+<div class="container-fluid">
+
+            <!-- Conteúdo principal -->
+            <h1>Lista de Pessoas</h1>
+            <ul class="list-group">
+                @foreach (var pessoa in Model)
+                {
+                    <li class="list-group-item">@pessoa.Name</li>
+                }
+            </ul>
+</div>

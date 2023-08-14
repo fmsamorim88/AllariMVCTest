@@ -1,0 +1,23 @@
+# Arquivos e diretórios gerados por sistemas operacionais
+.DS_Store
+Thumbs.db
+
+# Arquivos de sistema Windows
+Desktop.ini
+
+# Cache de diretórios de projetos
+bin/
+obj/
+# Arquivos de compilação
+*.exe
+*.dll
+*.pdb
+# Arquivos de configuração do usuário
+*.suo
+*.user
+*.sln.docstates
+
+# Configurações do Visual Studio
+.vscode/
+.vs/
+
